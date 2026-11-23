@@ -37,7 +37,7 @@ public class PainelService {
     /** R1: horas de escala por especialidade. */
     public List<EspecialidadeResumoResponse> especialidades() {
         // TODO R1: crie o método no PainelRepository e troque a linha abaixo por return painel.<metodo>(...);
-        throw new NaoImplementadoException("R1");
+        return painel.especialidades();
     }
 
     /** R2: movimento de cada prédio. */
