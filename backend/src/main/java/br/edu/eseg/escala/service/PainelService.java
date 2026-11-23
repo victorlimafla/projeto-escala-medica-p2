@@ -55,7 +55,7 @@ public class PainelService {
     /** R4: departamentos sem ninguém no dia (1 = segunda ... 7 = domingo). */
     public List<DepartamentoDescobertoResponse> departamentosDescobertos(Integer dia) {
         // TODO R4: crie o método no PainelRepository e troque a linha abaixo por return painel.<metodo>(...);
-        throw new NaoImplementadoException("R4");
+        return painel.departamentosDescobertos(dia);
     }
 
     /** R5: médicos com pelo menos "minimo" plantões noturnos. */

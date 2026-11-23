@@ -101,4 +101,26 @@ public interface PainelRepository extends Repository<Alocacao, Long> {
            """)
     List<RankingCargaResponse> rankingCarga(
             @Param("limite") Integer limite);
+
+
+    /**
+     * R4 - Departamentos sem alocações no dia informado.
+     */
+    @Query("""
+           select new br.edu.eseg.escala.dto.painel.DepartamentoDescobertoResponse(
+                  d.id,
+                  d.nome,
+                  p.nome)
+           from Departamento d
+           join d.predio p
+           where not exists (
+               select 1
+               from Alocacao a
+               where a.departamento = d
+                 and a.diaSemana = :dia
+           )
+           order by p.nome, d.nome
+           """)
+    List<DepartamentoDescobertoResponse> departamentosDescobertos(
+            @Param("dia") Integer dia);
 }
