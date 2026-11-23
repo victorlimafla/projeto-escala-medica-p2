@@ -49,7 +49,7 @@ public class PainelService {
     /** R3: ranking de uso da carga. limite = quantas linhas devolver. */
     public List<RankingCargaResponse> rankingCarga(Integer limite) {
         // TODO R3: crie o método no PainelRepository e troque a linha abaixo por return painel.<metodo>(...);
-        throw new NaoImplementadoException("R3");
+        return painel.rankingCarga(limite);
     }
 
     /** R4: departamentos sem ninguém no dia (1 = segunda ... 7 = domingo). */
