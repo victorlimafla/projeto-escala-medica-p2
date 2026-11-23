@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p2 - API Documentation</title>
+    <style>
+        body { margin: 0; padding: 0; }
+        #opencollection-container { width: 100vw; height: 100vh; }
+    </style>
+    <link rel="stylesheet" href="https://cdn.usebruno.com/api-docs/api-docs.css">
+    <script src="https://cdn.usebruno.com/api-docs/api-docs.js"></script>
+</head>
+<body>
+    <div id="opencollection-container"></div>
+    <script>
+        const collectionData = "opencollection: 1.0.0\ninfo:\n  name: p2\nconfig:\n  proxy:\n    inherit: true\n    config:\n      protocol: http\n      hostname: ''\n      port: ''\n      auth:\n        username: ''\n        password: ''\n      bypassProxy: ''\nitems:\n  - info:\n      name: R0 - Medicos por regime\n      type: http\n      seq: 1\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/exemplo/medicos-por-regime'\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R0: exemplo do professor, m\xE9dicos por regime de trabalho'\n  - info:\n      name: R1 - Horas por especialidade\n      type: http\n      seq: 2\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/especialidades'\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R1: horas de escala por especialidade e m\xE9dicos escalados'\n  - info:\n      name: R2 - Movimento por predio\n      type: http\n      seq: 3\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/predios'\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R2: movimento de cada pr\xE9dio (departamentos, plant\xF5es, m\xE9dicos, horas)'\n  - info:\n      name: R3 - Ranking de uso da carga\n      type: http\n      seq: 4\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/ranking-carga?limite=5'\n      params:\n        - name: limite\n          value: '5'\n          type: query\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R3: top N de m\xE9dicos mais perto do limite de carga (`limite`, padr\xE3o 5)'\n  - info:\n      name: R4 - Departamentos descobertos\n      type: http\n      seq: 5\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/departamentos-descobertos?dia=7'\n      params:\n        - name: dia\n          value: '7'\n          type: query\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R4: departamentos sem nenhum m\xE9dico no dia (`dia`, de 1 a 7)'\n  - info:\n      name: R5 - Plantonistas noturnos\n      type: http\n      seq: 6\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/plantonistas-noturnos?minimo=2'\n      params:\n        - name: minimo\n          value: '2'\n          type: query\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R5: m\xE9dicos com pelo menos `minimo` plant\xF5es noturnos'\n  - info:\n      name: R6 - Retrato de cada dia\n      type: http\n      seq: 7\n    http:\n      method: GET\n      url: '{{baseURL}}/api/painel/dias'\n      auth: inherit\n    settings:\n      encodeUrl: true\n      timeout: 0\n      followRedirects: true\n      maxRedirects: 5\n      forwardAuthorizationHeader: false\n    docs: 'R6: retrato de cada dia da semana'\nrequest:\n  variables:\n    - name: baseURL\n      value: http://localhost:8081\nbundled: true\nextensions:\n  bruno:\n    ignore:\n      - node_modules\n      - .git\n    exportedAt: '2026-11-23T02:21:15.877Z'\n    exportedUsing: Bruno/4.3.0\n";
+        new window.OpenCollection({
+            target: document.getElementById('opencollection-container'),
+            opencollection: collectionData,
+            gitCollectionUrl: "https://github.com/victorlimafla/projeto-escala-medica-p2.git",
+            theme: 'light'
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+info:
+  name: R1 - Horas por especialidade
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseURL}}/api/painel/especialidades"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "R1: horas de escala por especialidade e médicos escalados"

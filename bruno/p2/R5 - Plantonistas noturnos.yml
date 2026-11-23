@@ -1,0 +1,22 @@
+info:
+  name: R5 - Plantonistas noturnos
+  type: http
+  seq: 6
+
+http:
+  method: GET
+  url: "{{baseURL}}/api/painel/plantonistas-noturnos?minimo=2"
+  params:
+    - name: minimo
+      value: "2"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "R5: médicos com pelo menos `minimo` plantões noturnos"

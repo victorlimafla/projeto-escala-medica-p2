@@ -1,0 +1,22 @@
+info:
+  name: R3 - Ranking de uso da carga
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: "{{baseURL}}/api/painel/ranking-carga?limite=5"
+  params:
+    - name: limite
+      value: "5"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "R3: top N de médicos mais perto do limite de carga (`limite`, padrão 5)"

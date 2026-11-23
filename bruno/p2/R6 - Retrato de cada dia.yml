@@ -1,0 +1,18 @@
+info:
+  name: R6 - Retrato de cada dia
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{baseURL}}/api/painel/dias"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "R6: retrato de cada dia da semana"
