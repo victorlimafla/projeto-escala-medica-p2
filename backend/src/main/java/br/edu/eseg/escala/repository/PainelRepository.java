@@ -123,4 +123,25 @@ public interface PainelRepository extends Repository<Alocacao, Long> {
            """)
     List<DepartamentoDescobertoResponse> departamentosDescobertos(
             @Param("dia") Integer dia);
+
+
+    /**
+     * R5 - Médicos com pelo menos N plantões noturnos.
+     */
+    @Query("""
+           select new br.edu.eseg.escala.dto.painel.PlantonistaNoturnoResponse(
+                  m.nome,
+                  e.nome,
+                  count(a.id))
+           from Medico m
+           join m.especialidade e
+           join Alocacao a on a.medico = m
+           join a.turno t
+           where t.nome = 'Noite'
+           group by m.id, m.nome, e.nome
+           having count(a.id) >= :minimo
+           order by count(a.id) desc, m.nome
+           """)
+    List<PlantonistaNoturnoResponse> plantonistasNoturnos(
+            @Param("minimo") Integer minimo);
 }

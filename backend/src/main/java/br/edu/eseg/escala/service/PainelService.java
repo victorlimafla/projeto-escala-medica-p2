@@ -61,7 +61,7 @@ public class PainelService {
     /** R5: médicos com pelo menos "minimo" plantões noturnos. */
     public List<PlantonistaNoturnoResponse> plantonistasNoturnos(Integer minimo) {
         // TODO R5: crie o método no PainelRepository e troque a linha abaixo por return painel.<metodo>(...);
-        throw new NaoImplementadoException("R5");
+        return painel.plantonistasNoturnos(minimo);
     }
 
     /** R6: resumo de cada dia da semana. */
