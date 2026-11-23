@@ -12,7 +12,6 @@ import br.edu.eseg.escala.dto.painel.PlantonistaNoturnoResponse;
 import br.edu.eseg.escala.dto.painel.PredioResumoResponse;
 import br.edu.eseg.escala.dto.painel.RankingCargaResponse;
 import br.edu.eseg.escala.dto.painel.ResumoDiaResponse;
-import br.edu.eseg.escala.exception.NaoImplementadoException;
 import br.edu.eseg.escala.repository.PainelRepository;
 
 /**
@@ -67,6 +66,6 @@ public class PainelService {
     /** R6: resumo de cada dia da semana. */
     public List<ResumoDiaResponse> dias() {
         // TODO R6: crie o método no PainelRepository e troque a linha abaixo por return painel.<metodo>(...);
-        throw new NaoImplementadoException("R6");
+        return painel.dias();
     }
 }

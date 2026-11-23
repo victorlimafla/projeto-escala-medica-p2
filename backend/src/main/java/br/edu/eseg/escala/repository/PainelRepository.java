@@ -144,4 +144,21 @@ public interface PainelRepository extends Repository<Alocacao, Long> {
            """)
     List<PlantonistaNoturnoResponse> plantonistasNoturnos(
             @Param("minimo") Integer minimo);
+
+
+    /**
+     * R6 - Resumo das alocações por dia da semana.
+     */
+    @Query("""
+           select new br.edu.eseg.escala.dto.painel.ResumoDiaResponse(
+                  a.diaSemana,
+                  count(distinct a.medico.id),
+                  count(distinct a.departamento.id),
+                  coalesce(sum(t.duracaoHoras), 0))
+           from Alocacao a
+           join a.turno t
+           group by a.diaSemana
+           order by a.diaSemana
+           """)
+    List<ResumoDiaResponse> dias();
 }
