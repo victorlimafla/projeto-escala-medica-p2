@@ -53,4 +53,24 @@ public interface PainelRepository extends Repository<Alocacao, Long> {
            order by coalesce(sum(t.duracaoHoras), 0) desc, e.nome
            """)
     List<EspecialidadeResumoResponse> especialidades();
+
+
+    /**
+     * R2 - Movimento por prédio.
+     */
+    @Query("""
+           select new br.edu.eseg.escala.dto.painel.PredioResumoResponse(
+                  p.nome,
+                  count(distinct d.id),
+                  count(a.id),
+                  count(distinct a.medico.id),
+                  coalesce(sum(t.duracaoHoras), 0))
+           from Predio p
+           join Departamento d on d.predio = p
+           left join Alocacao a on a.departamento = d
+           left join a.turno t
+           group by p.id, p.nome
+           order by p.nome
+           """)
+    List<PredioResumoResponse> predios();
 }

@@ -43,7 +43,7 @@ public class PainelService {
     /** R2: movimento de cada prédio. */
     public List<PredioResumoResponse> predios() {
         // TODO R2: crie o método no PainelRepository e troque a linha abaixo por return painel.<metodo>(...);
-        throw new NaoImplementadoException("R2");
+        return painel.predios();
     }
 
     /** R3: ranking de uso da carga. limite = quantas linhas devolver. */
